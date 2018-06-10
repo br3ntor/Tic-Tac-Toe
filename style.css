@@ -1,0 +1,195 @@
+/* 
+
+    Color Scheme: 
+        http://paletton.com/#uid=53z0u0kllllaFw0g0qFqFg0w0aF
+
+*/
+
+
+body {
+    background: #2d3436;
+    color: rgb(221, 240, 255);
+    margin: 0;
+    font-family: Verdana;    
+}
+
+header {
+    text-align: center;
+}
+h1 {
+    font-size: 6vw;
+}
+
+/* Tic Tac Toe Board Container */
+#container {
+    border: 15px solid #267356;
+    border-radius: 1%;    
+    margin: 0 auto;
+    position: relative;
+    width: 60%;
+    padding-bottom: 60%;   
+}
+
+#board {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.square {
+    font-size: 18vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(42, 78, 110);
+    width: 33.333%;
+    transition: linear 0.3s;
+}
+
+.sq-hov:hover {
+    background: #728DA5;
+    cursor: pointer;    
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 33.333%;
+}
+
+.row>div:nth-child(1) {
+    border-right: 2px solid #73AC96;
+}
+
+.row>div:nth-child(2) {
+    border-left: 2px solid #73AC96;
+    border-right: 2px solid #73AC96;
+}
+
+.row>div:nth-child(3) {
+    border-left: 2px solid #73AC96;
+}
+
+#row_0>div {
+    border-bottom: 2px solid #73AC96;
+}
+
+#row_1>div {
+    border-top: 2px solid #73AC96;
+    border-bottom: 2px solid #73AC96;
+}
+
+#row_2>div {
+    border-top: 2px solid #73AC96;
+}
+
+/* Score Board */
+#scoreboard {
+    /* border: 2px dashed grey; */
+    font-size: 5vw;
+    width: 65%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+#scoreboard div {
+    display: flex;
+    align-items: center;
+}
+
+#scoreboard img {
+    width: 8vw;
+    opacity: 0.5;
+    margin: 0 20px;
+}
+
+
+/* Modal for Choosing Symbol */
+#modal {
+    padding-top: 200px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#modal-content {    
+    border-radius: 10px;
+    display: flex;
+    background-color: #0E563B;
+    margin: auto 25%;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 5px 5px 50px 5px rgba(0,0,0,0.5);
+    -moz-box-shadow: 5px 5px 50px 5px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 50px 5px rgba(0,0,0,0.5);
+}
+
+#choose-x, #choose-o {
+    padding: 5%;
+    cursor: pointer;
+    font-size: 8vw;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    -moz-transition: background .2s linear;
+    -o-transition: background .2s linear;
+    -webkit-transition: background .2s linear;
+    transition: background .2s linear;
+}
+#choose-x {border-radius: 10px 0 0 10px;}
+#choose-o {border-radius: 0 10px 10px 0;}
+
+
+#choose-x:hover, #choose-o:hover {
+    background: #267356;
+}
+
+/* Gameover message */
+#game-over-message {
+    font-size: 4vw;
+    display: none;
+    padding: 5%;
+}
+
+/* Media Queries */
+@media (min-width: 1300px) {
+    h1 {
+        font-size: 78px;
+    }
+    #container {
+        width: 780px;
+        height: 780px;
+        padding-bottom: 0;
+    }
+    .square {
+        font-size: 234px;
+    }
+    #scoreboard {
+        width: 845px;
+        font-size: 65px;
+    }
+    #scoreboard img {
+        width: 104px;
+    }
+    #modal-content {
+        margin: 0 auto;
+        width: 650px;
+    }
+    #choose-x, #choose-o {
+        font-size: 104px;
+    }
+    #game-over-message {
+        font-size: 52px;
+    }
+}
