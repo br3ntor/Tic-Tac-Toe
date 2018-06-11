@@ -4,6 +4,8 @@
   - Choose X or O
   - X will always go first.
   ======================================
+  Where I left off:
+    -Currently figuring out how to toggle hover on when it's the players turn
   ======================================
 */
 const squares = document.querySelectorAll('.square');
