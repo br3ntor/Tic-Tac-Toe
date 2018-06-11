@@ -1,33 +1,27 @@
-/* 
-
-    Color Scheme: 
-        http://paletton.com/#uid=53z0u0kllllaFw0g0qFqFg0w0aF
-
-*/
-
-
 body {
     background: #2d3436;
     color: rgb(221, 240, 255);
     margin: 0;
-    font-family: Verdana;    
+    font-family: Verdana;
 }
 
 header {
     text-align: center;
 }
+
 h1 {
     font-size: 6vw;
 }
 
 /* Tic Tac Toe Board Container */
+
 #container {
     border: 15px solid #267356;
-    border-radius: 1%;    
+    border-radius: 1%;
     margin: 0 auto;
     position: relative;
     width: 60%;
-    padding-bottom: 60%;   
+    padding-bottom: 60%;
 }
 
 #board {
@@ -51,7 +45,7 @@ h1 {
 
 .sq-hov:hover {
     background: #728DA5;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 .row {
@@ -88,14 +82,15 @@ h1 {
 }
 
 /* Score Board */
+
 #scoreboard {
-    /* border: 2px dashed grey; */
     font-size: 5vw;
     width: 65%;
     margin: 20px auto;
     display: flex;
     justify-content: space-around;
 }
+
 #scoreboard div {
     display: flex;
     align-items: center;
@@ -107,8 +102,8 @@ h1 {
     margin: 0 20px;
 }
 
-
 /* Modal for Choosing Symbol */
+
 #modal {
     padding-top: 200px;
     position: fixed;
@@ -121,19 +116,20 @@ h1 {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-#modal-content {    
+#modal-content {
     border-radius: 10px;
     display: flex;
     background-color: #0E563B;
     margin: auto 25%;
     align-items: center;
     justify-content: center;
-    -webkit-box-shadow: 5px 5px 50px 5px rgba(0,0,0,0.5);
-    -moz-box-shadow: 5px 5px 50px 5px rgba(0,0,0,0.5);
-    box-shadow: 5px 5px 50px 5px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 50px 5px rgba(0, 0, 0, 0.5);
 }
 
-#choose-x, #choose-o {
+#choose-x,
+#choose-o {
     padding: 5%;
     cursor: pointer;
     font-size: 8vw;
@@ -147,15 +143,22 @@ h1 {
     -webkit-transition: background .2s linear;
     transition: background .2s linear;
 }
-#choose-x {border-radius: 10px 0 0 10px;}
-#choose-o {border-radius: 0 10px 10px 0;}
 
+#choose-x {
+    border-radius: 10px 0 0 10px;
+}
 
-#choose-x:hover, #choose-o:hover {
+#choose-o {
+    border-radius: 0 10px 10px 0;
+}
+
+#choose-x:hover,
+#choose-o:hover {
     background: #267356;
 }
 
 /* Gameover message */
+
 #game-over-message {
     font-size: 4vw;
     display: none;
@@ -163,33 +166,35 @@ h1 {
 }
 
 /* Media Queries */
-@media (min-width: 1300px) {
+
+@media (min-width: 720px) {
     h1 {
-        font-size: 78px;
+        font-size: 45px;
     }
     #container {
-        width: 780px;
-        height: 780px;
+        width: 451px;
+        height: 451px;
         padding-bottom: 0;
     }
     .square {
-        font-size: 234px;
+        font-size: 135px;
     }
     #scoreboard {
-        width: 845px;
-        font-size: 65px;
+        width: 489px;
+        font-size: 38px;
     }
     #scoreboard img {
-        width: 104px;
+        width: 60px;
     }
     #modal-content {
         margin: 0 auto;
-        width: 650px;
+        width: 376px;
     }
-    #choose-x, #choose-o {
-        font-size: 104px;
+    #choose-x,
+    #choose-o {
+        font-size: 60px;
     }
     #game-over-message {
-        font-size: 52px;
+        font-size: 30px;
     }
 }

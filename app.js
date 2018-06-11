@@ -4,8 +4,6 @@
   - Choose X or O
   - X will always go first.
   ======================================
-  To Add:
-  -Push it to github
   ======================================
 */
 const squares = document.querySelectorAll('.square');
@@ -27,6 +25,7 @@ const center = 4;
 let humanMark = '';
 let computerMark = '';
 let gameOver = false;
+let humanTurn = false;
 
 
 // Max and Min are inclusive
@@ -81,7 +80,7 @@ function displayGameOverMessage(message) {
   modal.style.display = 'block';
   choices.forEach(el => el.style.display = 'none');
   document.getElementById('game-over-message').style.display = 'block';
-  document.getElementById('game-over-message').innerHTML = message;  
+  document.getElementById('game-over-message').innerHTML = message;
   setTimeout(resetGame, 2000);
 }
 
@@ -100,7 +99,7 @@ function resetGame() {
 }
 
 function humanMove(event) {
-  if (gameOver === false && event.target.innerHTML === '') {
+  if (gameOver === false && event.target.innerHTML === '' && humanTurn === true) {
     event.target.innerHTML = humanMark;
     removeHover();
 
@@ -115,7 +114,9 @@ function humanMove(event) {
       addScore('#d-score');
       setTimeout(displayGameOverMessage, 1000, 'Round Draw');
     } else {
-      computerMove();
+      // computerMove();
+      humanTurn = false;
+      setTimeout(computerMove, 700);
     }
   }
 }
@@ -263,16 +264,13 @@ function computerMove() {
       if (squares[0].innerHTML === computerMark && squares[8].innerHTML === '') {
         squares[8].innerHTML = computerMark;
         return true;
-      }
-      else if (squares[2].innerHTML === computerMark && squares[6].innerHTML === '') {
+      } else if (squares[2].innerHTML === computerMark && squares[6].innerHTML === '') {
         squares[6].innerHTML = computerMark;
         return true;
-      }
-      else if (squares[6].innerHTML === computerMark && squares[2].innerHTML === '') {
+      } else if (squares[6].innerHTML === computerMark && squares[2].innerHTML === '') {
         squares[2].innerHTML = computerMark;
         return true;
-      }
-      else if (squares[8].innerHTML === computerMark && squares[0].innerHTML === '') {
+      } else if (squares[8].innerHTML === computerMark && squares[0].innerHTML === '') {
         squares[0].innerHTML = computerMark;
         return true;
       } else console.log('could not mark corner');
@@ -344,10 +342,11 @@ function computerMove() {
       console.log('Round Draw');
       gameOver = true;
       addScore('#d-score');
-      setTimeout(displayGameOverMessage, 1000, 'Round Draw');      
+      setTimeout(displayGameOverMessage, 1000, 'Round Draw');
     }
   }
   removeHover();
+  humanTurn = true;
 }
 
 // Player move on click
@@ -365,6 +364,7 @@ Array.from(choices, element => {
     console.log(`Computer: ${computerMark}`);
 
     if (computerMark === 'X')
-      computerMove();
+      setTimeout(computerMove, 500);
+    // computerMove();
   });
 });
