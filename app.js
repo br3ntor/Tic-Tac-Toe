@@ -4,8 +4,6 @@
   - Choose X or O
   - X will always go first.
   ======================================
-  Where I left off:
-    -Currently figuring out how to toggle hover on when it's the players turn
   ======================================
 */
 const squares = document.querySelectorAll('.square');
@@ -72,8 +70,14 @@ function addScore(selector) {
 
 function removeHover() {
   squares.forEach(element => {
-    if (element.innerHTML !== '' || gameOver === true) {
-      element.classList.remove('sq-hov');
+    element.classList.remove('sq-hov');
+  });
+}
+
+function addHover() {
+  squares.forEach(element => {
+    if (element.innerHTML === '') {
+      element.classList.add('sq-hov');
     }
   });
 }
@@ -89,12 +93,13 @@ function displayGameOverMessage(message) {
 function resetGame() {
   squares.forEach(element => {
     element.innerHTML = '';
-    element.classList.add('sq-hov');
+    // element.classList.add('sq-hov');
     element.style.background = '';
   });
   humanMark = '';
   computerMark = '';
   gameOver = false;
+  humanTurn = false;
   modal.style.display = 'block';
   choices.forEach(el => el.style.display = '');
   document.getElementById('game-over-message').style.display = '';
@@ -347,8 +352,13 @@ function computerMove() {
       setTimeout(displayGameOverMessage, 1000, 'Round Draw');
     }
   }
-  removeHover();
-  humanTurn = true;
+
+  if (gameOver === true) {
+    removeHover();
+  } else {
+    humanTurn = true;
+    addHover();
+  }
 }
 
 // Player move on click
@@ -365,8 +375,12 @@ Array.from(choices, element => {
     console.log(`You: ${humanMark}`);
     console.log(`Computer: ${computerMark}`);
 
-    if (computerMark === 'X')
+    if (computerMark === 'X') {
       setTimeout(computerMove, 500);
-    // computerMove();
+      // computerMove();
+    } else {
+      humanTurn = true;
+      addHover();
+    }
   });
 });
