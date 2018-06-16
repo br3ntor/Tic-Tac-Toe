@@ -102,6 +102,22 @@ h1 {
     margin: 0 20px;
 }
 
+/* Footer */
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+}
+
+footer img {
+    opacity: 0.5;
+    transition: .2s linear;
+}
+
+footer img:hover {
+    opacity: 1;
+}
+
 /* Modal for Choosing Symbol */
 
 #modal {

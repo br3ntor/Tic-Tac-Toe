@@ -4,6 +4,9 @@
   - Choose X or O
   - X will always go first.
   ======================================
+  To Do:
+    - Fix borders on scaling lower than 720 width
+    - Make github icon scale
   ======================================
 */
 const squares = document.querySelectorAll('.square');
@@ -93,7 +96,6 @@ function displayGameOverMessage(message) {
 function resetGame() {
   squares.forEach(element => {
     element.innerHTML = '';
-    // element.classList.add('sq-hov');
     element.style.background = '';
   });
   humanMark = '';
@@ -121,7 +123,6 @@ function humanMove(event) {
       addScore('#d-score');
       setTimeout(displayGameOverMessage, 1000, 'Round Draw');
     } else {
-      // computerMove();
       humanTurn = false;
       setTimeout(computerMove, 700);
     }
@@ -377,7 +378,6 @@ Array.from(choices, element => {
 
     if (computerMark === 'X') {
       setTimeout(computerMove, 500);
-      // computerMove();
     } else {
       humanTurn = true;
       addHover();
